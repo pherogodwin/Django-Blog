@@ -1,0 +1,158 @@
+{% block title %}{% endblock title %}
+
+<!--{% block content %}-->
+<!--{% endblock content %}-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login | Gamers palace</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/33fa40ac6f.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/33fa40ac6f.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        background: #E1F0DA;
+    }
+
+</style>
+
+<body>
+<header class="py-3 mb-3 text-white border-bottom bg-dark">
+    <div class="container-fluid container d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+        <div class="dropdown">
+            <a class="navbar-brand mr-4" href="/" style="font-family: 'Pacifico', cursive;">Gamerspalace
+                <i class="fa-brands fa-blogger" style="color: #ffffff;"></i>
+            </a>
+            <ul class="dropdown-menu text-small shadow" style="">
+                <li><a class="dropdown-item active" href="#" aria-current="page">Overview</a></li>
+                <li><a class="dropdown-item" href="#">Inventory</a></li>
+                <li><a class="dropdown-item" href="#">Customers</a></li>
+                <li><a class="dropdown-item" href="#">Products</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Reports</a></li>
+                <li><a class="dropdown-item" href="#">Analytics</a></li>
+            </ul>
+        </div>
+
+        <div class="d-flex align-items-center">
+            <form class="w-100 me-3" role="search">
+                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            </form>
+
+            <div class="flex-shrink-0 dropdown">
+                <a href="#" class="d-block link-body-emphasis text-white dropdown-toggle"
+                   data-bs-toggle="dropdown" aria-expanded="false">
+                    {% if user.is_authenticated %}
+                    <img src="{{ user.profile.image.url }}" alt="mdo" width="32" height="32" class="rounded-circle">
+                    {% else %}
+                    <i class="fa-regular fa-user" style="color: #ffffff;"></i> {% endif %} </a>
+                <ul class="dropdown-menu text-small shadow" style="">
+                    {% if user.is_authenticated %}
+                    <li><a class="btn btn-outline-primary mx-3 my-2" href="{% url 'authuser:profile' %}">@{{user.username}}</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="btn btn-danger mx-3 my-2" href="{% url 'authuser:logout' %}">Sign out</a></li>
+                    {% else %}
+                    <li><a class="btn btn-success mx-3 my-2" href="{% url 'authuser:login' %}">Login</a></li>
+                    <li><a class="btn btn-success mx-3 my-2" href="{% url 'authuser:signup' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="container">{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}}">
+        <strong>{{message}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+<br><br><br>
+
+
+<div class="container mt-5">
+    <div class="col-lg-5 mx-auto bg-dark" style="box-shadow: 2px 2px 5px rgba(0,0,0,0.7);">
+        <div class="card">
+            <div class="card-body" style="color: #0F1035">
+                <h1 class="mb-4 text-center"><strong>Login</strong></h1>
+                <form method="post" action=".">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        {{ form.username }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Enter Password</label>
+                        {{ form.password }}
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg
+ btn-block" style="justify-content: center">Login
+                    </button>
+                    <small>Forgotten password?
+                        <a href="{% url 'password_reset' %}">Reset</a>
+                    </small>
+                </form>
+                <div style="text-center;">
+                    <small>Dont have an account?
+                        <a href="{% url 'authuser:signup' %}">Signup</a>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+<footer class="footer mt-auto py-5 bg-dark text-light">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Connect with Us</h5>
+                <!-- Add social media icons or links here using Material Icons -->
+                <span class="material-icons">facebook</span>
+                <span class="material-icons">cloud</span>
+                <span class="material-icons">draw</span>
+            </div>
+            <div class="col-md-4">
+                <h5>Amenities</h5>
+                <span class="material-icons">wifi</span>
+                <span class="material-icons">local_parking</span>
+                <span class="material-icons">pool</span>
+            </div>
+            <div class="col-md-4">
+                <h5>GamerspalaceContact</h5>
+                <p>@Gamerspalace.com</p>
+                <p>Phone: +1 (123) 456-7890</p>
+            </div>
+        </div>
+        <hr class="my-4">
+        <span class="text-white-muted border-bottom">Gamers palace &copy; 2024</span>
+    </div>
+</footer>
+</html>

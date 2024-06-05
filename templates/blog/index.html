@@ -1,0 +1,43 @@
+{% extends "partials/base2.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<h1 class="text-center">Gamers Palace</h1><br><br>
+{% for post in posts %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 ">
+            <div class="card mb-3 mx-10"
+                 style="margin-left: 30px; margin-right: 20px; box-shadow: 300px 2px 300px rgba(1,0,0,.1)">
+                <div class="card-body bg-dark text-white" style="border-radius: 10px;">
+                    <div class="text-center">
+                        <img width="30px" height="30px" style="border-radius:100%;"
+                             src="{% static 'media/Players award.jpeg' %}">
+                        <a href="{% url 'authuser:other_user_profile' post.author.username %}" style="text-decoration: none;">
+                            <h6 class="card-title text-center">@{{ post.author }}</h6>
+                        </a>
+                    </div>
+                    <a href="{% url 'blog:detail' post.id %}" style="text-decoration: none; color: white;"><h4
+                            class="card-title text-center">{{ post.title }}</h4>
+                        <p class="card-text" style="margin-left: 15px; margin-right: 15px;">{% if post.content|wordcount > 20 %}{{ post.content|truncatewords:20 }} <span class="text-info">"Read More"</span>{% else %} {{ post.content }}{% endif %}</p>
+
+                        <small style="margin-left: 340px; text-muted">{{ post.date_posted }}</small></a>
+                    <hr>
+                    <div>
+                        <i class="fa-regular fa-thumbs-up"
+                           style="font-size: 25px; margin-left: 15px; margin-right: 15px;"></i>
+                        <i class="fa-regular fa-comment"
+                           style="font-size: 25px; margin-left: 15px; margin-right: 15px;"></i>
+                        <i class="fa-solid fa-share-from-square"
+                           style="font-size: 25px; margin-left: 15px; margin-right: 15px;"></i>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

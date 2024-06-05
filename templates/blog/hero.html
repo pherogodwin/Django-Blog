@@ -1,0 +1,169 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+<style>
+
+</style>
+
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold text-body-emphasis" style="font-family: 'Yeseva One', serif;"><span
+            style="color: #0C2D57">Gamers</span><span style="color: #E8C872">Palace</span></h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4"> Join a vibrant and global community of gaming enthusiasts on GamersPalace.
+            Connect with players from around the world, share tips and strategies, and forge lasting friendships.
+            The leaderboard showcases the top players globally, adding a competitive edge to the sense of
+            camaraderie..</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <a href="{% url 'blog:blog' %}" class="btn btn-primary btn-lg px-4 me-sm-3">See Posts</a>
+            <!--            <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button>-->
+            <!--            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>-->
+            <a href="{% url 'blog:about' %}" class="btn btn-outline-info btn-lg px-4">See more</a>
+        </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 30vh;">
+        <div class="container px-5">
+            <img src="{% static 'media/phero.png' %}" class="img-fluid border rounded-3 shadow-lg mb-4"
+                 alt="Example image"
+                 width="700" height="500" loading="lazy">
+        </div>
+    </div>
+</div>
+<br>
+<div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Gamers choices</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                <img src="{% static 'media/1783d.webp' %}"
+                     class="card-img card card-cover h-100 overflow-hidden rounded-4 shadow-lg" alt="..."
+                     style="object-fit: cover;">
+                <div class="card-img-overlay d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                    <h5 class="card-title pt-3 mt-3 mb-3 display-6 lh-1 fw-bold">Racing Games</h5>
+                    <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                            <img src="{% static 'media/kings.png' %}" alt="Bootstrap" width="32" height="32"
+                                 class="rounded-circle border border-white">
+                            <small>Gamers Palace</small>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <svg class="bi me-2" width="1em" height="1em">
+                                <use xlink:href="#calendar3"></use>
+                            </svg>
+                            <small>Race</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                <img src="{% static 'media/othergame.jpg' %}"
+                     class="card-img card card-cover h-100 overflow-hidden rounded-4 shadow-lg" alt="..."
+                     style="object-fit: cover;">
+                <div class="card-img-overlay d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                    <a href="{% url 'games:games_home' %}"><h5
+                            class="card-title pt-3 mt-3 mb-3 display-6 lh-1 fw-bold text-white">Play other games</h5>
+                    </a>
+                    <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                            <img src="{% static 'media/kings.png' %}" alt="Bootstrap" width="32" height="32"
+                                 class="rounded-circle border border-white">
+                            <small>Gamers Palace</small>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <svg class="bi me-2" width="1em" height="1em">
+                                <use xlink:href="#calendar3"></use>
+                            </svg>
+                            <a href="{% url 'games:games_home' %}"><small>Others</small></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--the last card-->
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                <img src="{% static 'media/lappi.jpg' %}"
+                     class="card-img card card-cover h-100 overflow-hidden rounded-4 shadow-lg" alt="..."
+                     style="object-fit: cover;">
+                <div class="card-img-overlay d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                    <a href="{% url 'blog:blog' %}"><h5
+                            class="card-title pt-3 mt-3 mb-3 display-6 lh-1 fw-bold text-white">Share Your
+                        Experience</h5></a>
+                    <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                            <img src="{% static 'media/kings.png' %}" alt="Bootstrap" width="32" height="32"
+                                 class="rounded-circle border border-white">
+                            <small>Gamers Palace</small>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <svg class="bi me-2" width="1em" height="1em">
+                                <use xlink:href="#calendar3"></use>
+                            </svg>
+                            <small>Posts</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="card text-center ">
+    <div class="card-header bg-dark text-white">
+    </div>
+    <div class="card-body shadow-lg">
+        <h2 class="card-title">Special Views</h2>
+        <p class="card-text">There's always something delightful to uncover on our site. Your presence will make the
+            journey even more special! Click, see more games, and let the magic unfold!</p>
+        <a href="{% url 'games:games_home' %}" class="btn btn-outline-primary">See More Games</a>
+    </div>
+</div>
+<br><br>
+<ul class="dropdown-menu d-block position-static mx-0 border-0 shadow w-220px" data-bs-theme="dark">
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+        <svg class="bi" width="16" height="16"><use xlink:href="#files"></use></svg>
+        Documents
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center" href="{% url 'blog:about' %}">
+        <svg class="bi" width="16" height="16"><use xlink:href="#image-fill"></use></svg>
+        Photos
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+        <svg class="bi" width="16" height="16"><use xlink:href="#film"></use></svg>
+        Movies
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+        <svg class="bi" width="16" height="16"><use xlink:href="#music-note-beamed"></use></svg>
+        Music
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center" href="{% url 'games:games_home' %}">
+        <svg class="bi" width="16" height="16"><use xlink:href="#joystick"></use></svg>
+        Games
+      </a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+      <a class="dropdown-item d-flex gap-2 align-items-center" href="#">
+        <svg class="bi" width="16" height="16"><use xlink:href="#trash"></use></svg>
+        Trash
+      </a>
+    </li>
+  </ul>
+<br>
+{% endblock content %}

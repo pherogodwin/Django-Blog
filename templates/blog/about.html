@@ -1,0 +1,170 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block title %}About{% endblock title %}
+
+{% block content %}
+<main>
+
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class=""
+                    aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"
+                    aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
+                    class=""></button>
+        </div>
+        <!--second carousel-->
+        <div class="carousel-inner shadow-lg">
+            <div class="carousel-item active carousel-item-start">
+                <div style="text-align: center">
+                    <img src="{% static 'media/1212.jpg' %}" alt="" style="width: 400px">
+                </div>
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1>Example headline.</h1>
+                        <p class="opacity-75">Some representative placeholder content for the first slide of the
+                            carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="{% url 'authuser:signup' %}">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item carousel-item-next carousel-item-start shadow-lg">
+                <div style="text-align: center">
+                    <img src="{% static 'media/compete.jpg' %}" alt="" style="width: 400px">
+                </div>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Another example headline.</h1>
+                        <p>Some representative placeholder content for the second slide of the carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="{% url 'blog:about' %}">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+<!--            third carousel-->
+            <div class="carousel-item shadow-lg">
+                <div style="text-align: center">
+                    <img src="{% static 'media/posts.jpg' %}" alt="" style="width: 400px">
+                </div>
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>One more for good measure.</h1>
+                        <p>Some representative placeholder content for the third slide of this carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="{% url 'blog:blog' %}">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+<!--    first testimony-->
+    <hr>
+    <br>
+    <div class="container marketing">
+        <div class="row"><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                     src="{% static 'media/katherinep.jpeg' %}" alt="">
+                <h2 class="fw-normal">Katherine Marcel</h2>
+                <p>The staff at Gamers Palace deserves special commendation for their unwavering commitment to
+                    providing top-notch service. Their knowledge, professionalism, and genuine enthusiasm for gaming
+                    create an atmosphere where visitors feel not just like customers, but valued members of an extended
+                    gaming family.</p>
+                <p><a class="btn btn-secondary" href="#">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                     src="{% static 'media/jens.jpg' %}" alt="">
+
+                <h2 class="fw-normal">Jens Thomas</h2>
+                <p>What sets Gamers Palace apart is its dedication to fostering a positive and inclusive gaming
+                    culture. The emphasis on fair play, sportsmanship, and mutual respect among gamers elevates the
+                    overall experience. It's more than just a place to play; it's a community that encourages growth,
+                    collaboration, and the forging of lasting friendships.</p>
+                <p><a class="btn btn-secondary" href="#">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                     src="{% static 'media/marcelpics.jpg' %}" alt="">
+
+                <h2 class="fw-normal">Phillips Andrew</h2>
+                <p>Am so happy to be part of this community, though sometimes i lost my money in the game, but their
+                    passion for gaming is mirrored in their efforts to curate a space where players feel not just the
+                    rush of adrenaline from thrilling gameplay but also the tangible excitement of potential cash
+                    rewards.</p>
+                <p><a class="btn btn-secondary" href="#">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <!--first card-->
+        <hr class="featurette-divider">
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1"> Plan Your Visit: <span
+                        class="text-body-secondary">It’ll blow your mind.</span></h2>
+                <p class="lead">Ready to turn your gaming fantasies into reality? Gather your squad, grab your
+                    controllers, and head to Gamer's Palace. Our gaming room awaits your conquest – where dreams of
+                    victory turn into a tangible cash. Join us at Gamer's Palace, where the gaming revolution is not
+                    just on-screen; it's an experience you can touch, feel, and win. Don't miss out on the chance to be
+                    part of something extraordinary!</p>
+                <h5><p>📍Location: <a href="https://www.google.com/maps/dir/">Ojodu berger,Gamers plot</a></p>
+                    <p>📞Contact us at <a href="#">+1 (123) 456-7890</a> for more information.</p></h5>
+            </div>
+            <div class="col-md-5 shadow-lg">
+                <img class="featurette-image img-fluid mx-auto shadow-lg" width="500" height="500"
+                     src="{% static 'media/gameroom.jpg' %}" alt="">
+            </div>
+        </div>
+        <!--    <--second card--->
+        <hr class="featurette-divider">
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that so good? <span
+                        class="text-body-secondary">See for yourself.</span></h2>
+                <p class="lead">Are you ready to elevate your gaming experience to new heights? Look no further than
+                    the legendary Gamer's Palace, where the excitement is tangible, and the stakes are as real as the
+                    cash prizes that await the bold! Join us in celebrating the joy of limitless gaming possibilities
+                    at Gamers Palace! 🎮✨ Let your imagination run wild, and remember – here, the only limit is your
+                    own creativity. Level up, explore the uncharted, and game on!</p>
+            </div>
+            <div class="col-md-5 shadow-lg">
+                <img class="featurette-image img-fluid mx-auto shadow-lg" width="500" height="500"
+                     src="{% static 'media/nolimit.jpg' %}" alt="">
+            </div>
+        </div>
+        <hr class="featurette-divider">
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span>
+                </h2>
+                <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really
+                    intended to be actually read, simply here to give you a better view of what this would look like
+                    with some actual content. Your content.</p>
+
+            </div>
+            <div class="col-md-5 shadow-lg">
+                <img class="featurette-image img-fluid mx-auto shadow-lg" width="500" height="500"
+                     src="{% static 'media/1212.jpg' %}" alt="">
+            </div>
+        </div>
+        <hr class="featurette-divider">
+    </div>
+    <!-- FOOTER -->
+    <footer class="container">
+        <p class="float-end"><a href="#">Back to top</a></p>
+        <p><a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </footer>
+</main>
+
+{% endblock content %}
